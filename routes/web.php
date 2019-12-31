@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Custom... Мне не нравится такая логика
+Route::get( 'ajaxImageUpload', 'ImagesController@imageUpload');
+Route::post('ajaxImageUpload', 'ImagesController@imageUploadPost')->name('imageUpload');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,6 @@
-body.bg-dark {
-    background: #242424!important;
-    color: #fff;
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
