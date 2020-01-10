@@ -4,3 +4,14 @@ footer {
     left: 0;
     width: 100%;
 }
+.header-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+#profile_info .info_block .coins p {
+    font-size: 1.5rem;
+}
+#profile_info .info_block .coins strong{
+    font-size: 1.8rem;
+    margin-left: 10px;
+}

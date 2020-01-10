@@ -16,9 +16,16 @@ Route::get('/clear-cache', function() {
     return "Cache is cleared";
 });
 
-Route::get('/', function () {
-    return view('welcome');
+//Если авторизирован
+Route::middleware('auth')->group(function () {
+
+    Route::get('profile', 'UsersController@index')->name('profile');
+    Route::post('give_me_coin', 'UsersController@addCoin')->name('addCoin');
 });
+
+
+Route::get('/', 'HomeController@index')->name('home');
+
 
 //Custom... Мне не нравится такая логика
 Route::get( 'ajaxImageUpload', 'ImagesController@imageUpload');
@@ -26,4 +33,5 @@ Route::post('ajaxImageUpload', 'ImagesController@imageUploadPost')->name('imageU
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+

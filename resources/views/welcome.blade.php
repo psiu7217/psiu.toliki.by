@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
 
-        <h1>Hello, world!</h1>
+        <h1>Не авторизирован</h1>
 
 
         <div class="row justify-content-center">
