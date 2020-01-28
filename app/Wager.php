@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -10,6 +11,11 @@ class Wager extends Model
     use Sluggable;
 
     protected $fillable = ['title', 'description'];
+    /**
+     * @var int
+     */
+    private $creator_id;
+
     public function user()
     {
         return $this->hasOne(User::class);
@@ -35,7 +41,10 @@ class Wager extends Model
     }
 
     public function remove() {
-        $this->delete();
+        try {
+            $this->delete();
+        } catch (Exception $e) {
+        }
     }
 
 
