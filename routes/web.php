@@ -20,6 +20,12 @@ Route::get('/clear-cache', function() {
 Route::middleware('auth')->group(function () {
 
     Route::get('profile', 'UsersController@index')->name('profile');
+
+    //Пари
+    Route::get('bets', 'BetsController@index')->name('bets');
+    Route::get('bets/add', 'BetsController@add')->name('bets.add');
+
+
     Route::post('give_me_coin', 'UsersController@addCoin')->name('addCoin');
 });
 

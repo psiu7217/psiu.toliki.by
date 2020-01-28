@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateUsersTable extends Migration
+class CreateBetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class UpdateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table){
+        Schema::create('bets', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('option_id');
+            $table->bigInteger('user_id');
             $table->integer('coins');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class UpdateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->dropColumn('coins');
-        });
+        Schema::dropIfExists('bets');
     }
 }

@@ -38,6 +38,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function wagers() {
+        return $this->hasMany(
+          Wager::class,
+          'creator_id'
+        );
+    }
+
+    public function bets () {
+        return $this->hasMany(Bet::class);
+    }
+
     public static function addCoins($count) {
 
         //Если не авторизирован, то никому ничего не добавим блеать!
